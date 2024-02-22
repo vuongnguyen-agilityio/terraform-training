@@ -23,14 +23,11 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     os_profile {
         computer_name  = "myvm"
         admin_username = "azureuser"
+        admin_password = "Password1234!"
     }
 
     os_profile_linux_config {
-        disable_password_authentication = true
-        ssh_keys {
-            path     = "/home/azureuser/.ssh/authorized_keys"
-            key_data = "${file(var.sshkey)}"
-        }
+        disable_password_authentication = false
     }
 
     boot_diagnostics {
@@ -38,7 +35,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         storage_uri = "${var.blob_storage_url}"
     }
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }

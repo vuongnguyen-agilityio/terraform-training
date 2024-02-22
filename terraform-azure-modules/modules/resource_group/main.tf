@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "myrg" {
     name     = "myResourceGroup"
     location = "${var.location}"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
