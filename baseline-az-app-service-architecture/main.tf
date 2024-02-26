@@ -27,3 +27,11 @@ module "virtual_network" {
   resource_group_name = module.resource_group.name
   prefix              = var.prefix
 }
+
+module "app_service" {
+  source              = "./modules/app_service"
+  location            = var.location
+  resource_group_name = module.resource_group.name
+  prefix              = var.prefix
+
+}

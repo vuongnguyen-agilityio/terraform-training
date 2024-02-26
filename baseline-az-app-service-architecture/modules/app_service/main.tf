@@ -1,5 +1,5 @@
 resource "azurerm_service_plan" "storage_management" {
-  name                = "${var.prefix}-asp"
+  name                = "${var.prefix}_sp"
   location            = var.location
   resource_group_name = var.resource_group_name
   os_type             = "Linux"
@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "storage_management" {
 }
 
 resource "azurerm_linux_web_app" "storage_management" {
-  name                = "${var.prefix}_web_app"
+  name                = "storagemanagementwebapp"
   location            = var.location
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_service_plan.storage_management.id
@@ -18,9 +18,6 @@ resource "azurerm_linux_web_app" "storage_management" {
     application_stack {
       docker_image_name        = "vuongnguyenasnet/dotnet-practice:latest"
       docker_registry_url      = "https://registry.hub.docker.com/v2"
-      docker_registry_username = "docker_username"
-      docker_registry_password = "docker_password"
-      dotnet_version           = "8.0"
     }
   }
 
