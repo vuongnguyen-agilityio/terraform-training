@@ -1,6 +1,6 @@
-variable location {}
+variable "location" {}
 
 variable "prefix" {
-    default = ""
-    description = "Prefix Resource Name"
+  default     = ""
+  description = "Prefix Resource Name"
 }
