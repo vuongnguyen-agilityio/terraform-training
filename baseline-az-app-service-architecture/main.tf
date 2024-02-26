@@ -18,10 +18,12 @@ provider "azurerm" {
 module "resource_group" {
     source   = "./modules/resource_group"
     location = var.location
+    prefix = var.prefix
 }
 
 module "virtual_network" {
     source              = "./modules/virtual_network"
     location            = var.location
     resource_group_name = module.resource_group.name
+    prefix = var.prefix
 }

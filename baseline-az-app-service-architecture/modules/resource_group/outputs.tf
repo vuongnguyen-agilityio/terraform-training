@@ -1,7 +1,7 @@
 output "id" {
-    value = "${azurerm_resource_group.storageManagementResourceGroup.id}"
+    value = "${azurerm_resource_group.storage_management.id}"
 }
 
 output "name" {
-    value = "${azurerm_resource_group.storageManagementResourceGroup.name}"
+    value = "${azurerm_resource_group.storage_management.name}"
 }
